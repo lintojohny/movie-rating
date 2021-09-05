@@ -1,12 +1,11 @@
 const HttpStatus = require('http-status-codes');
-const {Logger} = require('../loaders/logger');
 
 function success(
   req,
   res,
   statusCode = HttpStatus.OK,
   data = null,
-  message = ''
+  message = '',
 ) {
   return res
     .status(statusCode)
@@ -22,15 +21,16 @@ function failure(
   res,
   statusCode = HttpStatus.BAD_REQUEST,
   data = null,
-  message = ''
+  message = '',
 ) {
-  Logger.error('🔥 API Error : %o %o', message, data);
+  console.error('🔥 API Error : %o %o', message, data);
   const response = {};
   if (!Array.isArray(data)) {
     response.errors = [].push(data);
   } else {
     response.errors = data;
   }
+
   return res
     .status(statusCode)
     .send(response)

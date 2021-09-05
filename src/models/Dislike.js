@@ -12,7 +12,7 @@ const dislikeSchema = mongoose.Schema(
       type: Schema.Types.ObjectId,
       ref: 'Comment',
     },
-    videoId: {
+    movieId: {
       type: String,
     },
   },

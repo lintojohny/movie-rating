@@ -1,8 +1,7 @@
-const {User} = require('../dataSource/models/User');
+const {User} = require('../models/User');
 
 const auth = (req, res, next) => {
-  const token = req.cookies.w_auth;
-
+  const token = req.headers.authorization;
   User.findByToken(token, (err, user) => {
     if (err) throw err;
     if (!user)

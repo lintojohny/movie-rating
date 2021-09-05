@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
     .send({
       date: new Date(),
       version: '0.0.0',
-      microService: 'Health is ok',
+      microService: 'Movie rating app health is ok',
     })
     .status(HttpStatus.OK)
     .end();

@@ -31,7 +31,7 @@ const catchErrors = fn =>
   If we hit a route that is not found, we mark it as 404 and pass it along to the next error handler to display
 */
 const notFound = (req, res, next) => {
-  const err = new Error('Not Found');
+  const err = new Error('Not found');
   err.status = HttpStatus.NOT_FOUND;
 
   next(err, req, res);
@@ -66,7 +66,7 @@ const developmentErrors = (err, req, res, next) => {
     res,
     status || HttpStatus.INTERNAL_SERVER_ERROR,
     errorDetails,
-    message
+    message,
   );
 };
 
@@ -88,7 +88,7 @@ const productionErrors = (err, req, res, next) => {
     res,
     status || HttpStatus.INTERNAL_SERVER_ERROR,
     errorDetails,
-    message
+    message,
   );
 };
 

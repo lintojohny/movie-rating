@@ -2,13 +2,11 @@ const express = require('express');
 
 const router = express.Router();
 const {catchErrors} = require('../errorHandlers');
+const {addComment} = require('../controllers/comment/addCommentController');
+const {getComments} = require('../controllers/comment/getCommentController');
 
-const {addComment} = require('../controllers/comments/addCommentsController');
-const {
-  getAllComments,
-} = require('../controllers/comments/getAllCommentsController');
+router.post('/addComment', catchErrors(addComment));
 
-router.post('/', catchErrors(addComment));
-router.post('/:activityId', catchErrors(getAllComments));
+router.get('/getComments/:postId', catchErrors(getComments));
 
 module.exports = router;
