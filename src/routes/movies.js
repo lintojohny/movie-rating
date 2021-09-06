@@ -10,7 +10,7 @@ const addMovieValidator = require('../validators/addMovieValidator');
 
 router.post('/addMovie', auth, addMovieValidator, catchErrors(addMovie));
 
-router.get('/getMovies', auth, catchErrors(getMovies));
+router.get('/getMovies', catchErrors(getMovies));
 router.get('/getMovies/:movieId', auth, catchErrors(getMovieById));
 
 module.exports = router;
