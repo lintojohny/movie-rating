@@ -40,6 +40,12 @@ const userSchema = mongoose.Schema({
   tokenExp: {
     type: Number,
   },
+  status: {
+    type: Number,
+    required: true,
+    enum: [0, 1],
+    default: 1,
+  },
 });
 
 userSchema.pre('save', function(next) {

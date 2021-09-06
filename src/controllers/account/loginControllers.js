@@ -1,10 +1,10 @@
 const sanitize = require('mongo-sanitize');
 const bcrypt = require('bcrypt');
-const {User} = require('../models/User');
+const {User} = require('../../models/User');
 
 async function userLogin(req, res) {
   const {email, password} = req.body;
-
+  console.log('================');
   User.findOne({email: sanitize(email)}, async (err, user) => {
     if (!user) {
       return res.json({

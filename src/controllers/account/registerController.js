@@ -1,5 +1,5 @@
 const sanitize = require('mongo-sanitize');
-const {User} = require('../models/User');
+const {User} = require('../../models/User');
 
 async function registerUser(req, res) {
   User.find(

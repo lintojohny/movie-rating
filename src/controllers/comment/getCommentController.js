@@ -1,8 +1,8 @@
 const {Comment} = require('../../models/Comment');
 
 async function getComments(req, res) {
-  const {postId} = req.params;
-  Comment.find({postId})
+  const {movieId} = req.params;
+  Comment.find({movieId})
     .populate('writer')
     .exec((err, comments) => {
       if (err) return res.status(400).send(err);

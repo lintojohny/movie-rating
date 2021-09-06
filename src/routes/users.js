@@ -1,10 +1,10 @@
 const express = require('express');
 
 const router = express.Router();
-const {userLogin} = require('../controllers/loginControllers');
-const {registerUser} = require('../controllers/registerController');
-const {userLogout} = require('../controllers/logoutController');
-const {getUsers} = require('../controllers/getUsersController');
+const {userLogin} = require('../controllers/account/loginControllers');
+const {registerUser} = require('../controllers/account/registerController');
+const {userLogout} = require('../controllers/account/logoutController');
+const {getUsers} = require('../controllers/account/getUsersController');
 
 const {catchErrors} = require('../errorHandlers');
 

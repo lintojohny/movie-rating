@@ -9,7 +9,8 @@ const favoriteSchema = mongoose.Schema(
       ref: 'User',
     },
     movieId: {
-      type: String,
+      type: Schema.Types.ObjectId,
+      ref: 'Movie',
     },
     movieTitle: {
       type: String,
@@ -19,6 +20,12 @@ const favoriteSchema = mongoose.Schema(
     },
     movieRunTime: {
       type: String,
+    },
+    status: {
+      type: Number,
+      required: true,
+      enum: [0, 1],
+      default: 1,
     },
   },
   {timestamps: true},

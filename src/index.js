@@ -26,32 +26,10 @@ app.use(cookieParser());
 
 app.use('/health', require('./routes/health'));
 app.use('/api/users', require('./routes/users'));
+app.use('/api/movies', require('./routes/movies'));
 app.use('/api/comment', require('./routes/comment'));
 app.use('/api/like', require('./routes/like'));
 app.use('/api/favorite', require('./routes/favorite'));
-
-app.use('/uploads', express.static('uploads'));
-
-// Serve static assets if in production
-if (process.env.NODE_ENV === 'production') {
-  // Set static folder
-  app.use(express.static('client/build'));
-
-  // index.html for all page routes
-  app.get('*', (req, res) => {
-    res.cookie('same-site-cookie', 'foo', {sameSite: 'lax'});
-    res.cookie('cross-site-cookie', 'bar', {sameSite: 'none', secure: true});
-    res.setHeader('set-cookie', [
-      'same-site-cookie=bar; SameSite=Lax',
-      'cross-site-cookie=foo; SameSite=None; Secure',
-    ]);
-    res.sendFile(path.resolve(__dirname, '../client', 'build', 'index.html'));
-  });
-}
-
-app.get('/movie/:movieId', function(req, res) {
-  res.cookie('cross-site-cookie', 'bar', {sameSite: 'none', secure: true});
-});
 
 // Error messages
 app.get('*', function(req, res) {

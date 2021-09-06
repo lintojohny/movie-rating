@@ -8,8 +8,9 @@ const commentSchema = mongoose.Schema(
       type: Schema.Types.ObjectId,
       ref: 'User',
     },
-    postId: {
-      type: String,
+    movieId: {
+      type: Schema.Types.ObjectId,
+      ref: 'Movie',
     },
     responseTo: {
       type: Schema.Types.ObjectId,
@@ -19,6 +20,12 @@ const commentSchema = mongoose.Schema(
       type: String,
     },
     date: {type: Date, default: Date.now},
+    status: {
+      type: Number,
+      required: true,
+      enum: [0, 1],
+      default: 1,
+    },
   },
   {timestamps: true},
 );
