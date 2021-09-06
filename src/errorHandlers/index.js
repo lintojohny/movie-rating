@@ -46,55 +46,7 @@ const ValidationErrors = (err, req, res, next) => {
   // add more custom logic if needed
 };
 
-/*
-Development Error Handler
-In development we show good error messages so if we hit a syntax error or any other previously un-handled error, we can show good info on what happened
-*/
-// eslint-disable-next-line no-unused-vars
-const developmentErrors = (err, req, res, next) => {
-  const {status, message} = err;
-  err.stack = err.stack || '';
-  const errorDetails = [
-    {
-      message,
-      stackTrace: err.stack,
-    },
-  ];
-
-  return failure(
-    req,
-    res,
-    status || HttpStatus.INTERNAL_SERVER_ERROR,
-    errorDetails,
-    message,
-  );
-};
-
-/*
-  Production Error Handler
-  No stack traces are leaked to user
-*/
-// eslint-disable-next-line no-unused-vars
-const productionErrors = (err, req, res, next) => {
-  const {status, message} = err;
-  const errorDetails = [
-    {
-      message,
-    },
-  ];
-
-  return failure(
-    req,
-    res,
-    status || HttpStatus.INTERNAL_SERVER_ERROR,
-    errorDetails,
-    message,
-  );
-};
-
 module.exports = {
-  productionErrors,
-  developmentErrors,
   ValidationErrors,
   catchErrors,
   notFound,

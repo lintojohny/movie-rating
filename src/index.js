@@ -1,11 +1,12 @@
 const express = require('express');
 
 const app = express();
+
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const path = require('path');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+// const cors = require('cors');
 
 dotenv.config();
 const config = require('./config/key');
@@ -20,6 +21,7 @@ mongoose
   .then(() => console.log('MongoDB Connected...'))
   .catch(err => console.log(err));
 
+// app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cookieParser());
