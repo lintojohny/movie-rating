@@ -34,7 +34,6 @@ Parse incoming request bodies in a middleware before your handlers, available un
 ## Authentication
 Requests are authenticated using the `Authorization` header with a valid JWT. We define a express middlewares in `auth.js` that can be used to authenticate requests. 
 
-
 ## Eslint and prettier config - With VS Code
 
 This repo follows wes bos eslint and prettier setup [No-Sweat™ Eslint and Prettier Setup](https://github.com/wesbos/eslint-config-wesbos)
