@@ -1,5 +1,4 @@
 # Movie Rating App 
-# ![Node/Express/Mongoose Example App]
 
 # Getting started
 
