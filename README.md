@@ -1,4 +1,4 @@
-# capture webpage by url
+# Movie Rating app
 
 ## Eslint and prettier config - With VS Code
 
@@ -28,3 +28,5 @@ Once you have done one, or both, of the above installs. You probably want your e
 // Optional BUT IMPORTANT: If you have the prettier extension enabled for other languages like CSS and HTML, turn it off for JS since we are doing it through Eslint already
 "prettier.disableLanguages": ["javascript", "javascriptreact"],
 ```
+
+
